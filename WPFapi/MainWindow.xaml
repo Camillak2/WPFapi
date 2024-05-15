@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFapi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="API work" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -81,7 +81,7 @@
             FontSize="16"
             Margin="10 0 0 0"/>
 
-        <ComboBox x:Name="RoleTB"
+        <ComboBox x:Name="RoleCB"
             Grid.Row="3"
             Grid.Column="0"
             HorizontalAlignment="Left"
@@ -90,9 +90,6 @@
             Width="380"
             Height="30"
             Margin="10 0 0 0">
-            <ComboBoxItem>
-                <TextBlock Text="{Binding positions}"/>
-            </ComboBoxItem>
         </ComboBox>
 
         <Button x:Name="AddBTN"
@@ -104,35 +101,46 @@
             FontSize="16"
             Width="380"
             Height="30"
-            Margin="10 0 0 0"/>
+            Margin="10 0 0 0" Click="AddBTN_Click"/>
+        <Button x:Name="ChangeBTN"
+            Content="Изменить"
+            Grid.Row="5"
+            Grid.Column="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Width="380"
+            Height="30"
+            Margin="10 0 0 20" Click="ChangeBTN_Click"/>
+
+        <Button x:Name="DeleteBTN"
+            Content="Удалить"
+            Grid.Row="5"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Width="380"
+            Height="30"
+            Margin="10 0 0 40" Click="DeleteBTN_Click"/>
 
         <ListView x:Name="UsersLV"
             Width="380"
             HorizontalAlignment="Center"
             Grid.Row="1"
             Grid.Column="1"
-            Grid.RowSpan="4">
+            Grid.RowSpan="4" SelectionChanged="UsersLV_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header = "Имя" Width="190">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Роль" Width="190">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Position.Name}"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                        <GridViewColumn Header = "ID" Width="80" DisplayMemberBinding="{Binding IDUser}"/>
+                        <GridViewColumn Header = "Имя" Width="110" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header = "Возраст" Width="80" DisplayMemberBinding="{Binding Age}"/>
+                        <GridViewColumn Header = "Роль" Width="110" DisplayMemberBinding="{Binding Role}"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
         </ListView>
-        
     </Grid>
 </Window>

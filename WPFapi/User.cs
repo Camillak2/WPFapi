@@ -8,10 +8,10 @@ namespace WPFapi
 {
     public class User
     {
-        public int Id { get; set; }
+        public int IDUser { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
-        public int RoleId { get; set; }
-        public string Role { get; set; }
+        public int IDRole { get; set; }
+        public string RoleName { get; set; }
     }
 }
